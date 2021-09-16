@@ -65,10 +65,18 @@ map.on("load", () => {
             .setHTML(popup_html)
             .addTo(map);
 
-        map.flyTo({
-            zoom: 7,
-            center: e.lngLat
-        })
+        var zoom = map.getZoom();
+
+        if (zoom < 7) {
+            map.flyTo({
+                zoom: 7,
+                center: e.lngLat
+            })
+        } else {
+            map.flyTo({
+                center: e.lngLat
+            })
+        }
 
     });
 
