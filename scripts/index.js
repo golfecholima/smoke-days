@@ -49,16 +49,16 @@ map.on("load", () => {
     // Show a popup when zip codes are clicked and zoom to the area
     map.on('click', (e) => {
         const features = map.queryRenderedFeatures(e.point);
-        console.log(features)
-        var lon = e.point.x
-        var lat = e.point.y
+        // console.log(features)
         var state = features[0].properties.state_code.toUpperCase()
         var county = features[0].properties.county.toUpperCase()
         var city = features[0].properties.city.toUpperCase()
         var zip = features[0].properties.GEOID10
-        var smoke = features[0].properties.current_period
+        var current_smoke = features[0].properties.current_period
+        var base_smoke = features[0].properties.base_period
+        var pct_change = features[0].properties.pct_change
 
-        popup_html = '<strong>' + zip + '</strong><br/>' + city + ', ' + state + '<br/>' + county + '<br/>' + '<strong>' + smoke + ' average smoke days' + '</strong>';
+        popup_html = '<strong>' + city + ', ' + state + ' ' + zip + '</strong></br>' + current_smoke + ' average smoke days 2016-2020' + '</strong></br>' + base_smoke + ' average smoke days 2009-2013'+ '</br>' + pct_change + '% change';
 
         new mapboxgl.Popup()
             .setLngLat(e.lngLat)
@@ -78,15 +78,6 @@ map.on("load", () => {
             })
         }
 
-    });
-
-    map.on("mousemove", ({ point }) => {
-        const smokeDays = map.queryRenderedFeatures(point, {
-            layers: ["smoke-days-0"]
-        });
-        document.getElementById("pd").innerHTML = smokeDays.length
-            ? `<h3>${smokeDays[0].properties.GEOID10}</h3><p><strong><em>${smokeDays[0].properties.current_period}</strong> average smoke days</em></p>`
-            : `<p>Click on a zip code!</p>`;
     });
 
     map.getCanvas().style.cursor = 'pointer'
