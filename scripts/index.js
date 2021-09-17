@@ -3,7 +3,7 @@ mapboxgl.accessToken =
 
 const bounds = [
     [-199.284547, 14.755733], // Southwest coordinates
-    [-54.323822, 75.518426] // Northeast coordinates
+    [-35.323822, 75.518426] // Northeast coordinates
 ];
 
 const map = new mapboxgl.Map({
@@ -19,26 +19,22 @@ const map = new mapboxgl.Map({
 map.on("load", () => {
     // legend colors and labels
     const layers = [
-        "Less than 7 days",
-        "7-15",
+        "Less than 15 days",
         "15-30",
         "30-45",
         "45-60",
         "60-75",
         "75-90",
-        "90-105",
-        "More than 105 days"
+        "More than 90 days"
     ];
     const colors = [
-        "hsla(109, 62%, 66%, 0.75)",
-        "hsla(71, 83%, 63%, 0.75)",
-        "hsla(53, 95%, 55%, 0.75)",
-        "hsla(27, 98%, 60%, 0.75)",
-        "hsla(14, 88%, 50%, 0.75)",
-        "hsla(0, 97%, 42%, 0.75)",
-        "hsla(336, 53%, 35%, 0.75)",
-        "hsla(318, 23%, 31%, 0.75)",
-        "hsla(304, 13%, 21%, 0.75)"
+        "rgba(255,255,178)",
+        "rgba(254,217,118)",
+        "rgba(254,178,76)",
+        "rgba(253,141,60)",
+        "rgba(252,78,42)",
+        "rgba(227,26,28)",
+        "rgba(177,0,38)"
     ];
     // create legend
     const legend = document.getElementById("legend");
