@@ -95,6 +95,7 @@ map.on("load", () => {
     map.addControl(
         new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
+            countries: 'us',
             mapboxgl: mapboxgl
         }),
         'top-left',
