@@ -1,12 +1,19 @@
 mapboxgl.accessToken =
     "pk.eyJ1IjoiY2FsbmV3c3Jvb20iLCJhIjoiY2ttYzhwZ2wyMDVobTJwbXhiaG81bXpzdSJ9.xnkn2BlbVZvFfGukyV_-0g";
+
+const bounds = [
+    [-199.284547, 14.755733], // Southwest coordinates
+    [-54.323822, 75.518426] // Northeast coordinates
+];
+
 const map = new mapboxgl.Map({
     container: "map", // container id
     style: "mapbox://styles/calnewsroom/cktlz242w9m1517pf1yy878my", // replace this with your style URL
     zoom: 3, // sets initial zoom
     maxZoom: 10, // sets max zoom
     minZoom: 3, // sets min zoom
-    center: [-101.41010808098838, 39.7680455941696] // sets initial center point
+    center: [-101.41010808098838, 39.7680455941696], // sets initial center point
+    maxBounds: bounds
 });
 
 map.on("load", () => {
