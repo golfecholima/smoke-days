@@ -5,25 +5,47 @@
 
     <!--  Meta  -->
     <meta charset="UTF-8">
-    <title>My New Project!</title>
+    <title>US Wildfired Smoke Exposure 2016-2020</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--  Styles  -->
     <link rel="stylesheet" href="styles/index.processed.css">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel='stylesheet'
+        href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css'
+        type="text/css">
 
     <!--  Javascript  -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+    <script
+        src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js'></script>
 
 </head>
 
 <body>
 
     <div id='map'></div>
-    <div class='map-overlay' id='features'>
-        <h2>Wildfired Smoke Exposure 2016-2020</h2>
+    <div class='map-overlay' id='title'>
+        <h2>Wildfired Smoke</br>Exposure</br>2016-2020</h2>
+        <p>Click on a zip code to learn more.</p>
+        <button id="modalBtn" class="about">About this map</button>
     </div>
     <div class='map-overlay' id='legend'></div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1 class="about">About this map</h1>
+            <p>By Alison Saldanha and George LeVines</p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p>This map includes fire origin points and most recent perimeter data from the <a
+                    href="https://data-nifc.opendata.arcgis.com/">National Interagency Fire Center</a>. Hotspot data
+                comes from four <a href="https://firms.modaps.eosdis.nasa.gov/">NASA</a> satellites.</p>
+            <p>All data is a best approximation given the available technology and ground resources. Factors such as
+                smoke plumes, cloud cover, fire intensity, time of day, and more can impact accuracy.</p>
+            <p id="lastUpdated" class="lastUpdated">Map data last updated on </p>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="scripts/index.js"></script>

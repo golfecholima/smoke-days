@@ -7,19 +7,23 @@ body {
     margin: 0;
     padding: 0;
 }
+h1 {
+    font-size: 1.2em;
+}
 
 h2,
 h3 {
     margin: 10px;
-    font-size: 18px;
+    font-size: 1em;
 }
 
 h3 {
-    font-size: 16px;
+    font-size: 0.9em;
 }
 
 p {
     margin: 10px;
+    font-size: 0.7em;
 }
 
 /**
@@ -37,24 +41,24 @@ p {
   * (information box and legend) will be displayed
   * on the page. */
 .map-overlay {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: #fff;
-    margin-right: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    margin: 10px;
     font-family: Arial, sans-serif;
     overflow: auto;
     border-radius: 3px;
 }
 
-#features {
-    top: 0;
+#title {
+    position: absolute;
     height: 120px;
-    margin-top: 20px;
-    width: 250px;
+    width: 240px;
+    top: 60px;
 }
 
 #legend {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     padding: 10px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     line-height: 18px;
@@ -69,4 +73,157 @@ p {
     width: 10px;
     height: 10px;
     margin-right: 5px;
+}
+
+// CONTROLS
+
+/* SEARCH BAR */
+
+.mapboxgl-ctrl-geocoder,
+.mapboxgl-ctrl-geocoder {
+    position: absolute;
+    margin: 0;
+    float: none;
+}
+
+/* SCALE RULER */
+
+.mapboxgl-ctrl-scale {
+    left: 160px;
+    position: absolute;
+}
+
+/* ABOUT BUTTON */
+
+button.about {
+    position: relative;
+    z-index: 1;
+    background: rgb(0, 0, 0, 0);
+    border: none;
+    text-decoration: underline;
+    padding-left: 10px;
+    cursor: pointer;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1em;
+    text-align: left;
+}
+
+/* ABOUT MODAL */
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin: -10px -2px 0 0;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h1.about {
+    margin: 0;
+}
+
+p#lastUpdated {
+    text-align: center;
+    margin: 0;
+    font-family: "Times New Roman", Times, sans-serif;
+    font-size: 0.8em;
+    font-weight: 800;
+}
+
+/* MOBILE FIRST */
+/* Larger than mobile */
+@media (min-width: 400px) {
+}
+
+/* Larger than phablet */
+@media (min-width: 640px) {
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2,
+    h3 {
+        margin: 10px;
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    p {
+        margin: 10px;
+        font-size: 1em;
+    }
+
+    #title {
+        position: absolute;
+        top: 0;
+        height: 180px;
+        width: 240px;
+    }
+
+    button.about {
+        position: relative;
+        z-index: 1;
+        background: rgb(0, 0, 0, 0);
+        border: none;
+        text-decoration: underline;
+        cursor: pointer;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 1em;
+        text-align: left;
+    }
+
+    .mapboxgl-ctrl-geocoder,
+    .mapboxgl-ctrl-geocoder {
+        position: absolute;
+        top: 190px;
+        margin: 0;
+        float: none;
+    }
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {
 }

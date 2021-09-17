@@ -3,10 +3,12 @@ mapboxgl.accessToken =
 const map = new mapboxgl.Map({
     container: "map", // container id
     style: "mapbox://styles/calnewsroom/cktlz242w9m1517pf1yy878my", // replace this with your style URL
-    zoom: 4, // sets initial zoom
+    zoom: 3, // sets initial zoom
     maxZoom: 10, // sets max zoom
+    minZoom: 3, // sets min zoom
     center: [-101.41010808098838, 39.7680455941696] // sets initial center point
 });
+
 map.on("load", () => {
     // legend colors and labels
     const layers = [
@@ -58,7 +60,7 @@ map.on("load", () => {
         var base_smoke = features[0].properties.base_period
         var pct_change = features[0].properties.pct_change
 
-        popup_html = '<strong>' + city + ', ' + state + ' ' + zip + '</strong></br>' + current_smoke + ' average smoke days 2016-2020' + '</strong></br>' + base_smoke + ' average smoke days 2009-2013'+ '</br>' + pct_change + '% change';
+        popup_html = '<strong>' + city + ', ' + state + ' ' + zip + '</strong></br>' + current_smoke + ' average smoke days 2016-2020' + '</strong></br>' + base_smoke + ' average smoke days 2009-2013' + '</br>' + pct_change + '% change';
 
         new mapboxgl.Popup()
             .setLngLat(e.lngLat)
@@ -81,6 +83,61 @@ map.on("load", () => {
     });
 
     map.getCanvas().style.cursor = 'pointer'
+
+    // Search
+    map.addControl(
+        new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+        }),
+        'top-left',
+    );
+
+    document.querySelector('.mapboxgl-ctrl-geocoder--input').placeholder = "State, City, Zip, Address";
+
+    // Zoom in/out, compass, fullscreen
+    const nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'bottom-right');
+
+    map.addControl(new mapboxgl.FullscreenControl({
+        container: document.querySelector('body')
+    }));
+
+    // Geolocation option
+    map.addControl(new mapboxgl.GeolocateControl({
+        positionOptions: { enableHighAccuracy: true },
+        trackUserLocation: true,
+        showUserHeading: true
+    }));
+
+    // Scale ruler
+    const scale = new mapboxgl.ScaleControl({
+        maxWidth: 80,
+        unit: 'imperial'
+    });
+    map.addControl(scale);
+
+    scale.setUnit('imperial');
+
+    // ABOUT MODAL
+    var modal = document.getElementById("modal");
+    var btn = document.getElementById("modalBtn");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
 });
 
 console.log("JavaScript is amazing!");
