@@ -50,7 +50,7 @@ p {
 
 #title {
   position: absolute;
-  height: 100px;
+  height: 110px;
   width: 240px;
   top: 60px;
 }
@@ -98,8 +98,8 @@ button.about {
   text-decoration: underline;
   padding-left: 10px;
   cursor: pointer;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 1em;
+  font-family: Arial, sans-serif;
+  font-size: 0.7em;
   text-align: left;
 }
 
@@ -186,7 +186,7 @@ h3 {
     border: none;
     text-decoration: underline;
     cursor: pointer;
-    font-family: "Times New Roman", Times, serif;
+    font-family: Arial, sans-serif;
     font-size: 1em;
     text-align: left;
   }
