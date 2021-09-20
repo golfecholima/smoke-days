@@ -28,13 +28,13 @@ map.on("load", () => {
         "More than 90 days"
     ];
     const colors = [
-        "rgba(255,255,178)",
-        "rgba(254,217,118)",
-        "rgba(254,178,76)",
-        "rgba(253,141,60)",
-        "rgba(252,78,42)",
-        "rgba(227,26,28)",
-        "rgba(177,0,38)"
+        "rgba(255,255,0,.75)",
+        "rgba(255,208,0,.75)",
+        "rgba(252,159,5,.75)",
+        "rgba(235,113,17,.75)",
+        "rgba(209,69,25,.75)",
+        "rgba(172,28,31,.75)",
+        "rgba(126,0,35,.75)"
     ];
     // create legend
     const legend = document.getElementById("legend");
@@ -54,7 +54,9 @@ map.on("load", () => {
     // Show a popup when zip codes are clicked and zoom to the area
     map.on('click', (e) => {
         const features = map.queryRenderedFeatures(e.point);
-        // console.log(features)
+        const re = RegExp('^(.*?)\,');
+        
+
         var state = features[0].properties.state_code.toUpperCase()
         var county = features[0].properties.county.toUpperCase()
         var city = features[0].properties.city.toUpperCase()
@@ -63,7 +65,11 @@ map.on("load", () => {
         var base_smoke = features[0].properties.base_period
         var pct_change = features[0].properties.pct_change
 
-        popup_html = '<strong>' + city + ', ' + state + ' ' + zip + '</strong></br>' + current_smoke + ' average smoke days 2016-2020' + '</strong></br>' + base_smoke + ' average smoke days 2009-2013' + '</br>' + pct_change + '% change';
+        if ((thing = re.exec(city)) !== null) {
+            var city = `${thing[1]}`;
+        };
+
+        popup_html = '<h3>' + city + ', ' + state + ' ' + zip + '</h3></br>' + current_smoke + ' average smoke days 2016-2020' + '</strong></br>' + base_smoke + ' average smoke days 2009-2013' + '</br>' + pct_change + '% change';
 
         new mapboxgl.Popup()
             .setLngLat(e.lngLat)
