@@ -54,7 +54,7 @@ map.on("load", () => {
         const features = map.queryRenderedFeatures(e.point);
         const reCDP = RegExp('( CDP)', 'g');
         const recity = RegExp('( city)', 'g');
-        
+
 
         var state = features[0].properties.state_code.toUpperCase()
         var county = features[0].properties.county.toUpperCase()
@@ -63,6 +63,21 @@ map.on("load", () => {
         var current_smoke = Math.round(features[0].properties.current_period)
         var base_smoke = Math.round(features[0].properties.base_period)
         var pct_change = Math.round(features[0].properties.pct_change)
+        var color = "#000000"
+
+        if (current_smoke <= 13.5) {
+            color = "#ffff00BF";
+        } else if (current_smoke >= 13.5 && current_smoke <= 27.5) {
+            color = "#ffc600BF";
+        } else if (current_smoke >= 27.5 && current_smoke <= 41.5) {
+            color = "#fc8900BF";
+        } else if (current_smoke >= 41.5 && current_smoke <= 55.5) {
+            color = "#f23b00BF";
+        } else if (current_smoke >= 55.5 && current_smoke <= 69.49) {
+            color = "#ad2957BF";
+        } else {
+            color = "#7e0023BF";
+        }
 
         if (reCDP.exec(city) !== null) {
             var city = city.replace(reCDP, '')
@@ -72,20 +87,7 @@ map.on("load", () => {
             var city = city.replace(recity, '')
         };
 
-        popup_html = '<h3>' + state + ' - ' + zip + '</h3><p id="city" class="popup">Includes: ' + city + '</p><p class="popup">2009-2013: ' + base_smoke + ' avg. smoke days</p><p class="popup">2016-2020: ' + current_smoke + ' avg. smoke days</p><p id="pct-change" class="popup">Pct. change: ' + pct_change;
-
-        // if (pct_change < ) {
-
-        // } else if () {
-
-        // }
-
-        // "#ffff00BF",
-        // "#ffc600BF",
-        // "#fc8900BF",
-        // "#f23b00BF",
-        // "#ad2957BF",
-        // "#7e0023BF"
+        popup_html = '<h3>' + state + ' - ' + zip + '</h3><p id="city" class="popup">Includes: ' + city + '</p><p class="popup">2009-2013: ' + base_smoke + ' avg. smoke days</p><p class="popup">2016-2020: ' + current_smoke + ' avg. smoke days</p><p id="pct-change" class="popup" style="border-top: 3px solid' + color + '">Pct. change: ' + pct_change;
 
         new mapboxgl.Popup()
             .setLngLat(e.lngLat)
