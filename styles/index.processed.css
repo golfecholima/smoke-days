@@ -133,6 +133,7 @@ button.about {
   position: fixed;
   z-index: 3;
   padding-top: 100px;
+  font-family: Arial, sans-serif;
   left: 0;
   top: 0;
   width: 100%;
@@ -169,6 +170,7 @@ button.about {
 
 h1.about {
   margin: 0;
+  padding: 0 0 0 10px;
 }
 
 /* MOBILE FIRST */
@@ -213,9 +215,13 @@ h3 {
 
   #title {
     position: absolute;
-    top: 0;
+    top: 5px;
+    left: 10px;
     height: 180px;
     width: 240px;
+    padding: 0px 0 5px 0;
+    margin: 0;
+    line-height: 1.5em;
   }
 
   #legend {

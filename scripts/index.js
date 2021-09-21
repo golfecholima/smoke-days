@@ -99,11 +99,13 @@ map.on("load", () => {
         if (zoom < 7) {
             map.flyTo({
                 zoom: 7,
-                center: e.lngLat
+                center: e.lngLat,
+                offset: [0, 110]
             })
         } else {
             map.flyTo({
-                center: e.lngLat
+                center: e.lngLat,
+                offset: [0, 110]
             })
         }
 
