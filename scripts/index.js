@@ -19,22 +19,20 @@ const map = new mapboxgl.Map({
 map.on("load", () => {
     // legend colors and labels
     const layers = [
-        "Less than 15 days",
-        "15-30",
-        "30-45",
-        "45-60",
-        "60-75",
-        "75-90",
-        "More than 90 days"
+        "Less than 2 weeks",
+        "2-4 weeks",
+        "4-6 weeks",
+        "6-8 weeks",
+        "8-10 weeks",
+        "10 or more weeks"
     ];
     const colors = [
-        "rgba(255,255,0,.75)",
-        "rgba(255,208,0,.75)",
-        "rgba(252,159,5,.75)",
-        "rgba(235,113,17,.75)",
-        "rgba(209,69,25,.75)",
-        "rgba(172,28,31,.75)",
-        "rgba(126,0,35,.75)"
+        "#ffff00BF",
+        "#ffc600BF",
+        "#fc8900BF",
+        "#f23b00BF",
+        "#ad2957BF",
+        "#7e0023BF"
     ];
     // create legend
     const legend = document.getElementById("legend");
@@ -69,7 +67,7 @@ map.on("load", () => {
             var city = `${thing[1]}`;
         };
 
-        popup_html = '<h3>' + city + ', ' + state + ' ' + zip + '</h3></br>' + current_smoke + ' average smoke days 2016-2020' + '</strong></br>' + base_smoke + ' average smoke days 2009-2013' + '</br>' + pct_change + '% change';
+        popup_html = '<h3>' + city + ', ' + state + ' ' + zip + '</h3></br>' + current_smoke + ' avg. smoke days 2016-2020' + '</strong></br>' + base_smoke + ' avg. smoke days 2009-2013' + '</br>' + pct_change + ' pct. change';
 
         new mapboxgl.Popup()
             .setLngLat(e.lngLat)
