@@ -7,6 +7,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 h1 {
     font-size: 1.2em;
 }
@@ -19,6 +20,7 @@ h3 {
 
 h3 {
     font-size: 0.9em;
+    line-height: .7em;
 }
 
 p {
@@ -41,7 +43,7 @@ p {
   * (information box and legend) will be displayed
   * on the page. */
 .map-overlay {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     margin: 10px;
     font-family: Arial, sans-serif;
     overflow: auto;
@@ -61,8 +63,8 @@ p {
     left: 0;
     padding: 10px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    line-height: 1em;
-    height: 85px;
+    line-height: 1.2em;
+    height: 90px;
     margin-bottom: 40px;
     width: 110px;
     font-size: 0.7em;
@@ -74,6 +76,29 @@ p {
     width: 10px;
     height: 10px;
     margin-right: 5px;
+    border: 1px solid #00000080;
+}
+
+// POPUP
+
+p.popup {
+    margin: 0 10px;
+    font-size: .9em;
+}
+
+#city {
+    line-height: 1.2em;
+    padding: 0 0 5px 0;
+}
+
+#pct-change {
+    border-top: 3px solid #000000;
+    font-weight: 800;
+    margin-top: 5px;
+}
+
+.mapboxgl-popup-content {
+    padding: 5px 3px 7px !important;
 }
 
 // CONTROLS
@@ -105,7 +130,7 @@ button.about {
     padding-left: 10px;
     cursor: pointer;
     font-family: Arial, sans-serif;
-    font-size: .7em;
+    font-size: 0.7em;
     text-align: left;
 }
 
@@ -185,6 +210,22 @@ h1.about {
         font-size: 1em;
     }
 
+    p.popup {
+        margin: 0 10px;
+        font-size: 1.1em;
+    }
+
+    #city {
+        line-height: 1.2em;
+        padding: 0 0 5px 0;
+    }
+
+    #pct-change {
+        border-top: 3px solid #000000;
+        font-weight: 800;
+        margin-top: 5px;
+    }
+
     #title {
         position: absolute;
         top: 0;
@@ -199,7 +240,7 @@ h1.about {
         padding: 10px;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         line-height: 1.1em;
-        height: 120px;
+        height: 102px;
         margin-bottom: 40px;
         width: 150px;
         font-size: 1em;
