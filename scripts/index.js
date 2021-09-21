@@ -87,7 +87,7 @@ map.on("load", () => {
             var city = city.replace(recity, '')
         };
 
-        popup_html = '<h3>' + state + ' - ' + zip + '</h3><p id="city" class="popup">Includes: ' + city + '</p><p class="popup">2009-2013: ' + base_smoke + ' avg. smoke days</p><p class="popup">2016-2020: ' + current_smoke + ' avg. smoke days</p><p id="pct-change" class="popup" style="border-top: 3px solid' + color + '">Pct. change: ' + pct_change;
+        popup_html = '<h3>' + state + ' - ' + zip + '</h3><p id="city" class="popup">Includes: ' + city + '</p><p class="popup"><strong>2009-2013:</strong> ' + base_smoke + ' avg. smoke days</p><p class="popup"><strong>2016-2020:</strong> ' + current_smoke + ' avg. smoke days</p><p id="pct-change" class="popup" style="border-top: 3px solid' + color + '">Pct. change: ' + pct_change + '%';
 
         new mapboxgl.Popup()
             .setLngLat(e.lngLat)
