@@ -52,22 +52,40 @@ map.on("load", () => {
     // Show a popup when zip codes are clicked and zoom to the area
     map.on('click', (e) => {
         const features = map.queryRenderedFeatures(e.point);
-        const re = RegExp('^(.*?)\,');
+        const reCDP = RegExp('( CDP)', 'g');
+        const recity = RegExp('( city)', 'g');
         
 
         var state = features[0].properties.state_code.toUpperCase()
         var county = features[0].properties.county.toUpperCase()
-        var city = features[0].properties.city.toUpperCase()
+        var city = features[0].properties.city
         var zip = features[0].properties.GEOID10
-        var current_smoke = features[0].properties.current_period
-        var base_smoke = features[0].properties.base_period
-        var pct_change = features[0].properties.pct_change
+        var current_smoke = Math.round(features[0].properties.current_period)
+        var base_smoke = Math.round(features[0].properties.base_period)
+        var pct_change = Math.round(features[0].properties.pct_change)
 
-        if ((thing = re.exec(city)) !== null) {
-            var city = `${thing[1]}`;
+        if (reCDP.exec(city) !== null) {
+            var city = city.replace(reCDP, '')
         };
 
-        popup_html = '<h3>' + city + ', ' + state + ' ' + zip + '</h3></br>' + current_smoke + ' avg. smoke days 2016-2020' + '</strong></br>' + base_smoke + ' avg. smoke days 2009-2013' + '</br>' + pct_change + ' pct. change';
+        if (recity.exec(city) !== null) {
+            var city = city.replace(recity, '')
+        };
+
+        popup_html = '<h3>' + state + ' - ' + zip + '</h3><p id="city" class="popup">Includes: ' + city + '</p><p class="popup">2009-2013: ' + base_smoke + ' avg. smoke days</p><p class="popup">2016-2020: ' + current_smoke + ' avg. smoke days</p><p id="pct-change" class="popup">Pct. change: ' + pct_change;
+
+        // if (pct_change < ) {
+
+        // } else if () {
+
+        // }
+
+        // "#ffff00BF",
+        // "#ffc600BF",
+        // "#fc8900BF",
+        // "#f23b00BF",
+        // "#ad2957BF",
+        // "#7e0023BF"
 
         new mapboxgl.Popup()
             .setLngLat(e.lngLat)
