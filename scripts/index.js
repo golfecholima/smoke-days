@@ -54,6 +54,8 @@ map.on("load", () => {
         const features = map.queryRenderedFeatures(e.point);
         const reCDP = RegExp('( CDP)', 'g');
         const recity = RegExp('( city)', 'g');
+        const retown = RegExp('( town)', 'g');
+        const revill = RegExp('( village)', 'g');
 
 
         var state = features[0].properties.state_code.toUpperCase()
@@ -87,7 +89,15 @@ map.on("load", () => {
             var city = city.replace(recity, '')
         };
 
-        popup_html = '<h3>' + state + ' - ' + zip + '</h3><p id="city" class="popup">Includes: ' + city + '</p><p class="popup"><strong>2009-2013:</strong> ' + base_smoke + ' avg. smoke days</p><p class="popup"><strong>2016-2020:</strong> ' + current_smoke + ' avg. smoke days</p><p id="pct-change" class="popup" style="border-top: 3px solid' + color + '">Pct. change: ' + pct_change + '%';
+        if (retown.exec(city) !== null) {
+            var city = city.replace(retown, '')
+        };
+
+        if (revill.exec(city) !== null) {
+            var city = city.replace(revill, '')
+        };
+
+        popup_html = '<h3>' + state + ' - ' + zip + '</h3><p id="city" class="popup">Includes: ' + city + '</p><p class="popup"><strong>2009-2013:</strong> ' + base_smoke + ' avg. smoke days/year</p><p class="popup"><strong>2016-2020:</strong> ' + current_smoke + ' avg. smoke days/year</p><p id="pct-change" class="popup" style="border-top: 3px solid' + color + '">Pct. change: ' + pct_change + '%';
 
         new mapboxgl.Popup()
             .setLngLat(e.lngLat)
@@ -168,6 +178,18 @@ map.on("load", () => {
         }
     }
 
+});
+
+// Helper function
+let domReady = (cb) => {
+    document.readyState === 'interactive' || document.readyState === 'complete'
+        ? cb()
+        : document.addEventListener('DOMContentLoaded', cb);
+};
+
+domReady(() => {
+    // Display body when DOM is loaded
+    document.body.style.visibility = 'visible';
 });
 
 console.log("JavaScript is amazing!");

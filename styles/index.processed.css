@@ -2,6 +2,7 @@
  * index.scss
  *  -Add any styles you want here!
  */
+/* MOBILE FIRST */
 body {
   margin: 0;
   padding: 0;
@@ -9,6 +10,7 @@ body {
 
 h1 {
   font-size: 1.2em;
+  font-family: Roboto, Arial, sans-serif;
 }
 
 h2,
@@ -44,16 +46,36 @@ p {
 .map-overlay {
   background: rgba(255, 255, 255, 0.9);
   margin: 10px;
-  font-family: Arial, sans-serif;
+  font-family: Roboto, Arial, sans-serif;
   overflow: auto;
   border-radius: 3px;
 }
 
 #title {
   position: absolute;
-  height: 110px;
+  height: 115px;
   width: 240px;
   top: 60px;
+}
+
+#title h2 {
+  margin: 0 10px;
+  padding: 10px 0 5px;
+  font-family: "Roboto Condensed";
+  letter-spacing: 0.01em;
+}
+
+#title h3 {
+  margin: 0 10px;
+  line-height: 1.1em;
+  font-size: 0.9em;
+  font-weight: 300;
+  font-family: "Roboto Condensed", Arial, sans-serif;
+}
+
+#title p {
+  margin: 0 10px;
+  padding: 10px 0 2px;
 }
 
 #legend {
@@ -81,6 +103,8 @@ p {
 p.popup {
   margin: 0 10px;
   font-size: 0.9em;
+  font-family: "Roboto Condensed", Arial, sans-serif;
+  line-height: 1.3em;
 }
 
 #city {
@@ -96,11 +120,12 @@ p.popup {
 
 .mapboxgl-popup-content {
   padding: 5px 3px 7px !important;
+  font-family: "Roboto", Arial, sans-serif;
 }
 
 /* SEARCH BAR */
-.mapboxgl-ctrl-geocoder,
 .mapboxgl-ctrl-geocoder {
+  font-family: "Roboto Condensed", Arial, sans-serif !important;
   position: absolute;
   margin: 0;
   float: none;
@@ -121,7 +146,7 @@ button.about {
   text-decoration: underline;
   padding: 5px 10px;
   cursor: pointer;
-  font-family: Arial, sans-serif;
+  font-family: Roboto, Arial, sans-serif;
   font-size: 0.7em;
   text-align: left;
 }
@@ -133,7 +158,7 @@ button.about {
   position: fixed;
   z-index: 3;
   padding-top: 100px;
-  font-family: Arial, sans-serif;
+  font-family: Roboto, Arial, sans-serif;
   left: 0;
   top: 0;
   width: 100%;
@@ -171,15 +196,16 @@ button.about {
 h1.about {
   margin: 0;
   padding: 0 0 0 10px;
+  font-family: Roboto, Arial, sans-serif;
 }
 
-/* MOBILE FIRST */
 /* Larger than mobile */
 /* Larger than phablet */
 /* Larger than tablet */
 @media (min-width: 750px) {
   h1 {
     font-size: 2em;
+    font-family: Roboto, Arial, sans-serif;
   }
 
   h2,
@@ -200,6 +226,7 @@ h3 {
   p.popup {
     margin: 0 10px;
     font-size: 1.1em;
+    font-family: "Roboto Condensed", Arial, sans-serif;
   }
 
   #city {
@@ -215,13 +242,33 @@ h3 {
 
   #title {
     position: absolute;
-    top: 5px;
+    top: 10px;
     left: 10px;
-    height: 180px;
-    width: 240px;
+    height: 140px;
+    width: 270px;
     padding: 0px 0 5px 0;
     margin: 0;
     line-height: 1.5em;
+  }
+
+  #title h2 {
+    margin: 0 10px;
+    padding: 10px 0 5px;
+    font-family: "Roboto Condensed";
+    letter-spacing: 0.01em;
+  }
+
+  #title h3 {
+    margin: 0 10px;
+    line-height: 1.1em;
+    font-size: 1.1em;
+    font-weight: 400;
+    font-family: "Roboto Condensed", Arial, sans-serif;
+  }
+
+  #title p {
+    margin: 0 10px;
+    padding: 7px 0 3px;
   }
 
   #legend {
@@ -243,16 +290,18 @@ h3 {
     background: rgba(0, 0, 0, 0);
     border: none;
     text-decoration: underline;
+    padding: 5px 10px;
     cursor: pointer;
-    font-family: Arial, sans-serif;
-    font-size: 1em;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 0.8em;
     text-align: left;
   }
 
-  .mapboxgl-ctrl-geocoder,
-.mapboxgl-ctrl-geocoder {
+  .mapboxgl-ctrl-geocoder {
+    font-family: "Roboto Condensed", Arial, sans-serif !important;
     position: absolute;
-    top: 190px;
+    top: 150px;
+    min-width: 270px;
     margin: 0;
     float: none;
   }
