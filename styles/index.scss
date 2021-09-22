@@ -106,7 +106,7 @@ p {
 
 p.popup {
     margin: 0 10px;
-    font-size: .9em;
+    font-size: 0.9em;
     font-family: "Roboto Condensed", Arial, sans-serif;
     line-height: 1.3em;
 }
@@ -124,7 +124,7 @@ p.popup {
 
 .mapboxgl-popup-content {
     padding: 5px 3px 7px !important;
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: "Roboto", Arial, sans-serif;
 }
 
 // CONTROLS
@@ -242,11 +242,12 @@ h1.about {
     p.popup {
         margin: 0 10px;
         font-size: 1.1em;
-        font-family: 'Roboto Condensed', Arial, sans-serif;
+        font-family: "Roboto Condensed", Arial, sans-serif;
+        line-height: 1.3em;
     }
 
     #city {
-        line-height: 1.2em;
+        line-height: 1.3em;
         padding: 0 0 5px 0;
     }
 
@@ -276,7 +277,7 @@ h1.about {
 
     #title h3 {
         margin: 0 10px;
-        line-height: 1.1em;
+        line-height: 1.2em;
         font-size: 1.1em;
         font-weight: 400;
         font-family: "Roboto Condensed", Arial, sans-serif;

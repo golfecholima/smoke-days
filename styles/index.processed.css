@@ -227,10 +227,11 @@ h3 {
     margin: 0 10px;
     font-size: 1.1em;
     font-family: "Roboto Condensed", Arial, sans-serif;
+    line-height: 1.3em;
   }
 
   #city {
-    line-height: 1.2em;
+    line-height: 1.3em;
     padding: 0 0 5px 0;
   }
 
@@ -260,7 +261,7 @@ h3 {
 
   #title h3 {
     margin: 0 10px;
-    line-height: 1.1em;
+    line-height: 1.2em;
     font-size: 1.1em;
     font-weight: 400;
     font-family: "Roboto Condensed", Arial, sans-serif;
