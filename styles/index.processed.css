@@ -1,8 +1,3 @@
-/**
- * index.scss
- *  -Add any styles you want here!
- */
-/* MOBILE FIRST */
 body {
   margin: 0;
   padding: 0;
@@ -29,9 +24,6 @@ p {
   font-size: 0.7em;
 }
 
-/**
-  * Create a position for the map
-  * on the page */
 #map {
   position: absolute;
   top: 0;
@@ -39,10 +31,6 @@ p {
   width: 100%;
 }
 
-/**
-  * Set rules for how the map overlays
-  * (information box and legend) will be displayed
-  * on the page. */
 .map-overlay {
   background: rgba(255, 255, 255, 0.9);
   margin: 10px;
@@ -123,7 +111,6 @@ p.popup {
   font-family: "Roboto", Arial, sans-serif;
 }
 
-/* SEARCH BAR */
 .mapboxgl-ctrl-geocoder {
   font-family: "Roboto Condensed", Arial, sans-serif !important;
   position: absolute;
@@ -131,13 +118,11 @@ p.popup {
   float: none;
 }
 
-/* SCALE RULER */
 .mapboxgl-ctrl-scale {
   left: 160px;
   position: absolute;
 }
 
-/* ABOUT BUTTON */
 button.about {
   position: relative;
   z-index: 1;
@@ -151,8 +136,6 @@ button.about {
   text-align: left;
 }
 
-/* ABOUT MODAL */
-/* The Modal (background) */
 .modal {
   display: none;
   position: fixed;
@@ -193,15 +176,6 @@ button.about {
   cursor: pointer;
 }
 
-h1.about {
-  margin: 0;
-  padding: 0 0 0 10px;
-  font-family: Roboto, Arial, sans-serif;
-}
-
-/* Larger than mobile */
-/* Larger than phablet */
-/* Larger than tablet */
 @media (min-width: 750px) {
   h1 {
     font-size: 2em;
