@@ -48,6 +48,7 @@ p {
     height: 115px;
     width: 240px;
     top: 60px;
+    overflow: clip;
 }
 
 #title h2 {
@@ -81,6 +82,7 @@ p {
     margin-bottom: 40px;
     width: 110px;
     font-size: 0.7em;
+    overflow: clip;
 }
 
 .legend-key {
@@ -249,6 +251,7 @@ button.about {
         padding: 0px 0 5px 0;
         margin: 0;
         line-height: 1.5em;
+        overflow: clip;
     }
 
     #title h2 {
@@ -282,6 +285,7 @@ button.about {
         margin-bottom: 40px;
         width: 150px;
         font-size: 1em;
+        overflow: clip;
     }
 
     // CONTROLS
